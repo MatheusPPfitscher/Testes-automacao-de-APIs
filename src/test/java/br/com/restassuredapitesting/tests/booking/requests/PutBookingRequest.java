@@ -2,12 +2,14 @@ package br.com.restassuredapitesting.tests.booking.requests;
 
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.tests.booking.requests.payloads.BookingPayloads;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class PutBookingRequest extends BaseTest {
+public class PutBookingRequest {
 
+    @Step("Atualiza uma Reserva específica usando um Auth token")
     public Response updateOneBookingWithAuthToken(int id, String token){
 
         BookingPayloads bookingPayloads = new BookingPayloads();

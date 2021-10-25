@@ -1,0 +1,15 @@
+Na documentação da API, em Booking, em DeleteBooking:
+    Consta "Success 200" como título da operação bem sucedida, a seguir, na Descrição temos "Default HTTP 201 response"
+e no exemplo de response também se monstra uma resposta "HTTP/1.1 201 Created", nos testes por Postman e automação foi
+observado este comportamento de "201 Created", assim o título não está claro, consultando a documentação de códigos HTTP
+(https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status), para esse caso onde a ação é de delete,
+ a resposta de "201 Created" é contraintuitiva em relação à ação realizada, sugiro a resposta padrão
+"200 OK" no lugar da atual e ajusta na documentação.
+
+  Na documentação da API, em Booking, em GetBookingIds:
+    No Example 3, Filter by checkin/checkout, no parâmetro checkin, a descrição é "Return bookings that have a checkin
+date greater than or equal to the set checkin date. Format must be CCYY-MM-DD"
+Em teste realizado pegando todos os IDs através de /booking, acessando o primeiro id através de /booking:id,
+extraindo o campo checkin deste booking e usando ele como Filter em /booking?checkin= a API não retorna este ID no
+array de resposta, em testes no postman foi necessário fazer a busca com uma data anterior ao que consta na booking
+consultada para o retorno possuir a ID inicial usada.
