@@ -33,7 +33,7 @@ public class GetBookingRequest {
                 .get("booking/{id}");
     }
 
-    @Step("Retorna o first name de uma Reserva por id")
+    @Step("Retorna o primeiro nome de uma Reserva por id")
     public String returnBookingFirstName(int id){
         return this.returnBookingFromId(id)
                 .then()
@@ -41,7 +41,7 @@ public class GetBookingRequest {
                 .path("firstname");
     }
 
-    @Step("Retorna o last name de uma Reserva por id")
+    @Step("Retorna o sobrenome de uma Reserva por id")
     public String returnBookingLastName(int id){
         return this.returnBookingFromId(id)
                 .then()
@@ -62,8 +62,8 @@ public class GetBookingRequest {
         return given()
                 .queryParam("firstname",firstName)
                 .queryParam("lastname",lastName)
-                .queryParam("checkin",bookingDates.get("checkin").toString())
-                .queryParam("checkout",bookingDates.get("checkout".toString()))
+                .queryParam("checkin",bookingDates.get("checkin"))
+                .queryParam("checkout",bookingDates.get("checkout"))
                 .when()
                 .get("booking");
     }
@@ -108,6 +108,16 @@ public class GetBookingRequest {
                     .queryParam("checkout",bookingDates.get("checkout").toString())
                     .when()
                     .get("booking");
+    }
+
+    @Step("Retorna a resposta ao realizar uma requisição com um Filtro mal formatado")
+    public Response returnResponseOnBadBookingFilter(){
+        return given()
+                .queryParam("firstname",true)
+                .queryParam("someGarbage", "UnsLixosQueChegaramAqui")
+                .when()
+                .log().all()
+                .get("booking");
     }
 }
 

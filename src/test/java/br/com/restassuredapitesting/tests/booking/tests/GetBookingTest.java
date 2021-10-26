@@ -3,6 +3,7 @@ package br.com.restassuredapitesting.tests.booking.tests;
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
+import br.com.restassuredapitesting.suites.E2ETests;
 import br.com.restassuredapitesting.suites.SchemaTests;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.utils.Utils;
@@ -64,7 +65,6 @@ public class GetBookingTest extends BaseTest {
     @DisplayName("Validar o retorno de Reservas por filtro de primeiro nome")
     public void validateBookingFilterByFirstName(){
         int idToTest = getBookingRequest.returnFirstIdFromBookingIds();
-        System.out.println("Primeiro ID encontrado: "+ idToTest);
         String firstName = getBookingRequest.returnBookingFirstName(idToTest);
         getBookingRequest.returnBookingFilterFirstName(firstName)
                 .then()
@@ -137,5 +137,15 @@ public class GetBookingTest extends BaseTest {
                 .then()
                 .statusCode(200)
                 .body(containsString(String.valueOf(idToTest)));
+    }
+
+    @Test
+    @Category({AllTests.class, E2ETests.class})
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Validar o retorno de erro de servidor 500 ao enviar um filtro mal formatado")
+    public void validateServerErrorOnBadBookingFilter(){
+        getBookingRequest.returnResponseOnBadBookingFilter()
+                .then()
+                .statusCode(500);
     }
 }

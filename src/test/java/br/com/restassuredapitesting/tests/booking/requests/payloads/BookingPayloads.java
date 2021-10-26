@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class BookingPayloads {
 
-    public static JSONObject payloadValidBooking(){
+    public static JSONObject defaultPayload(){
         JSONObject payload = new JSONObject();
         JSONObject bookingDates = new JSONObject();
         bookingDates.put("checkin","2021-10-28");

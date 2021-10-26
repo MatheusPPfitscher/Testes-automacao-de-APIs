@@ -15,4 +15,12 @@ public class DeleteBookingRequest {
                 .when()
                 .delete("booking/{id}");
     }
+
+    public Response deleteBookingFromIdWithoutToken(int id){
+        return given()
+                .pathParam("id",String.valueOf(id))
+                .header("Content-Type", "application/json")
+                .when()
+                .delete("booking/{id}");
+    }
 }

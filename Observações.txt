@@ -13,3 +13,12 @@ Em teste realizado pegando todos os IDs através de /booking, acessando o primei
 extraindo o campo checkin deste booking e usando ele como Filter em /booking?checkin= a API não retorna este ID no
 array de resposta, em testes no postman foi necessário fazer a busca com uma data anterior ao que consta na booking
 consultada para o retorno possuir a ID inicial usada.
+
+Na documentação da API, em Booking, em UpdateBooking:
+    Na descrição dos campos do Header, a descrição do campo Authorisation, "YWRtaW46cGFzc3dvcmQxMjM=]" deveria estar
+    na descrição do Valor padrão, não no começo da descrição.
+    Tambem nesta documentação, no exemplo de "URLencoded", o curl exemplificado
+
+Na suite E2E, no envio de um filtro mal formatado, seja ele sem nenhum parametro ou com um parametro valido e um invalido,
+a API retorna todos os IDs no caso de conter apenas filtros invalidos, ou realiza o filtro de IDs caso um dos parametros
+seja valido, quando à mesma deveria retornar error code 500 de servidor ao recebe-lo.
