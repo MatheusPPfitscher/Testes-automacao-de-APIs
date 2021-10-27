@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: br.com.restassuredapitesting.runners.AllTests
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 36.441 s <<< FAILURE! - in br.com.restassuredapitesting.runners.AllTests
+validateBookingFilterByCheckIn(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.435 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Response body doesn't match expectation.
+Expected: a string containing "819"
+  Actual: [{"bookingid":820},{"bookingid":817},{"bookingid":624},{"bookingid":638},{"bookingid":704},{"bookingid":595},{"bookingid":307},{"bookingid":409},{"bookingid":388},{"bookingid":577},{"bookingid":582},{"bookingid":594},{"bookingid":644},{"bookingid":581},{"bookingid":681},{"bookingid":821},{"bookingid":306},{"bookingid":217},{"bookingid":579},{"bookingid":591},{"bookingid":593},{"bookingid":178},{"bookingid":118},{"bookingid":592},{"bookingid":604},{"bookingid":576},{"bookingid":567},{"bookingid":357},{"bookingid":221},{"bookingid":218},{"bookingid":285},{"bookingid":138},{"bookingid":384},{"bookingid":449},{"bookingid":605},{"bookingid":18},{"bookingid":613},{"bookingid":359},{"bookingid":617},{"bookingid":609},{"bookingid":58},{"bookingid":369},{"bookingid":125},{"bookingid":441},{"bookingid":590},{"bookingid":616},{"bookingid":349},{"bookingid":215},{"bookingid":123},{"bookingid":75},{"bookingid":540},{"bookingid":26},{"bookingid":31},{"bookingid":614},{"bookingid":825},{"bookingid":56},{"bookingid":737},{"bookingid":390},{"bookingid":216},{"bookingid":417},{"bookingid":135},{"bookingid":424},{"bookingid":598},{"bookingid":74},{"bookingid":304},{"bookingid":627},{"bookingid":17},{"bookingid":8},{"bookingid":574},{"bookingid":826},{"bookingid":134},{"bookingid":303},{"bookingid":393},{"bookingid":649},{"bookingid":575},{"bookingid":701},{"bookingid":129},{"bookingid":620},{"bookingid":601},{"bookingid":533},{"bookingid":301},{"bookingid":365},{"bookingid":170},{"bookingid":383},{"bookingid":682},{"bookingid":416},{"bookingid":43},{"bookingid":155},{"bookingid":448},{"bookingid":49},{"bookingid":6},{"bookingid":126},{"bookingid":32},{"bookingid":402},{"bookingid":658},{"bookingid":823},{"bookingid":35},{"bookingid":45},{"bookingid":318},{"bookingid":308},{"bookingid":546},{"bookingid":120},{"bookingid":367},{"bookingid":321},{"bookingid":59},{"bookingid":151},{"bookingid":223},{"bookingid":600},{"bookingid":621},{"bookingid":214},{"bookingid":34},{"bookingid":450},{"bookingid":410},{"bookingid":55},{"bookingid":44},{"bookingid":78},{"bookingid":659},{"bookingid":147},{"bookingid":146},{"bookingid":446},{"bookingid":41},{"bookingid":815},{"bookingid":392},{"bookingid":165},{"bookingid":171},{"bookingid":635},{"bookingid":822},{"bookingid":618},{"bookingid":738},{"bookingid":10},{"bookingid":447},{"bookingid":607},{"bookingid":578},{"bookingid":88},{"bookingid":419},{"bookingid":685},{"bookingid":641},{"bookingid":143},{"bookingid":132},{"bookingid":127},{"bookingid":154},{"bookingid":824},{"bookingid":550},{"bookingid":549},{"bookingid":623},{"bookingid":647},{"bookingid":420},{"bookingid":152},{"bookingid":316},{"bookingid":30},{"bookingid":499},{"bookingid":315},{"bookingid":385},{"bookingid":53},{"bookingid":57},{"bookingid":25},{"bookingid":368},{"bookingid":121},{"bookingid":634},{"bookingid":222},{"bookingid":403},{"bookingid":119},{"bookingid":153},{"bookingid":423},{"bookingid":637},{"bookingid":596},{"bookingid":327},{"bookingid":626},{"bookingid":89},{"bookingid":606},{"bookingid":295},{"bookingid":386},{"bookingid":534},{"bookingid":425},{"bookingid":164},{"bookingid":622},{"bookingid":608},{"bookingid":33},{"bookingid":619},{"bookingid":639},{"bookingid":305},{"bookingid":130},{"bookingid":422},{"bookingid":15},{"bookingid":320},{"bookingid":122},{"bookingid":169},{"bookingid":537},{"bookingid":389},{"bookingid":133},{"bookingid":39},{"bookingid":610},{"bookingid":611},{"bookingid":317},{"bookingid":816},{"bookingid":573},{"bookingid":720},{"bookingid":394},{"bookingid":136},{"bookingid":572},{"bookingid":27}]
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingFilterByCheckIn(GetBookingTest.java:98)
+
+validateBookingFilterByDoubleCheckOut(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 2.486 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingFilterByDoubleCheckOut(GetBookingTest.java:123)
+
+validateServerErrorOnBadBookingFilter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 0.802 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <500> but was <200>.
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateServerErrorOnBadBookingFilter(GetBookingTest.java:149)
+
+validateBookingFilter(br.com.restassuredapitesting.tests.booking.tests.GetBookingTest)  Time elapsed: 4.009 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Response body doesn't match expectation.
+Expected: a string containing "819"
+  Actual: []
+
+	at br.com.restassuredapitesting.tests.booking.tests.GetBookingTest.validateBookingFilter(GetBookingTest.java:139)
+
