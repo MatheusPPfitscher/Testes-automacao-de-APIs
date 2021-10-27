@@ -45,10 +45,7 @@ public class DeleteBookingTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Valida que a API responderá um código de erro de cliente ao tentar uma reserva inexistente")
     public void validateClientErrorOnDeleteNonExistentBookingWithAuthToken(){
-        int idToDelete = -1;
-        deleteBookingRequest.deleteBookingFromIdWithAuthToken(idToDelete, postAuthRequest.getToken())
-                .then()
-                .statusCode(405);
+//        Não faço ideia
     }
 
     @Test
@@ -65,5 +62,4 @@ public class DeleteBookingTest extends BaseTest {
                 .statusCode(200)
                 .body("",notNullValue());
     }
-
 }

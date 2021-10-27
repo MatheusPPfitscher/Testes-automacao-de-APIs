@@ -3,7 +3,6 @@ package br.com.restassuredapitesting.tests.booking.tests;
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AcceptanceTests;
 import br.com.restassuredapitesting.suites.AllTests;
-import br.com.restassuredapitesting.suites.E2ETests;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.PutBookingRequest;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
@@ -58,50 +57,5 @@ public class PutBookingTest extends BaseTest {
                 .then()
                 .statusCode(200)
                 .body("firstname",equalTo(randomFirstName));
-    }
-
-    @Test
-    @Category({AllTests.class, E2ETests.class})
-    @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Validar erro de Cliente ao alterar uma reserva sem enviar token ou autenticação")
-    public void validateClientErrorBookingModificationWithoutAnyAuth(){
-        int idToTest = getBookingRequest.returnFirstIdFromBookingIds();
-        JSONObject payloadToUse = BookingPayloads.defaultPayload();
-        String randomFirstName = Utils.generateRandomFirstName();
-        payloadToUse.put("firstname",randomFirstName);
-
-        putBookingRequest.updateOneBookingWithoutAuth(idToTest,payloadToUse)
-                .then()
-                .statusCode(403);
-    }
-
-    @Test
-    @Category({AllTests.class,E2ETests.class})
-    @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Validar Erro de Cliente ao alterar uma reserva com um token invalido")
-    public void validateClientErrorBookingModificationWithIncorrectAuthToken(){
-        int idToTest = getBookingRequest.returnFirstIdFromBookingIds();
-        JSONObject payloadToUse = BookingPayloads.defaultPayload();
-        String randomFirstName = Utils.generateRandomFirstName();
-        String randomToken = "These Are Not the Droids You Are Looking For";
-        putBookingRequest.updateOneBookingWithAuthToken(idToTest, randomToken,payloadToUse)
-                .then()
-                .statusCode(403);
-    }
-
-    @Test
-    @Category({AllTests.class,E2ETests.class})
-    @Severity(SeverityLevel.TRIVIAL)
-    @DisplayName("Validar Erro de Cliente ao tentar alterar uma reserva inexistente com Auth Token")
-    public void validateClientErrorBookingModificationNonExistentBookingWithAuthToken(){
-        int idToTest = -1;
-        String tokenToUse = postAuthRequest.getToken();
-        JSONObject payloadToUse = BookingPayloads.defaultPayload();
-        String randomFirstName = Utils.generateRandomFirstName();
-        String randomToken = "These Are Not the Droids You Are Looking For";
-
-        putBookingRequest.updateOneBookingWithAuthToken(idToTest,tokenToUse,payloadToUse)
-                .then()
-                .statusCode(405);
     }
 }
