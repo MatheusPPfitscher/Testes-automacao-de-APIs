@@ -7,6 +7,7 @@ import br.com.restassuredapitesting.suites.E2ETests;
 import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.payloads.BookingPayloads;
 import br.com.restassuredapitesting.utils.Utils;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
@@ -17,6 +18,7 @@ import org.junit.experimental.categories.Category;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
+@Feature("Feature - Criação de Reservas")
 public class PostBookingTest extends BaseTest {
 
     PostBookingRequest postBookingRequest = new PostBookingRequest();

@@ -107,7 +107,6 @@ public class GetBookingRequest {
                     .queryParam("checkout",bookingDates.get("checkout").toString())
                     .queryParam("checkout",bookingDates.get("checkout").toString())
                     .when()
-                    .log().all()
                     .get("booking");
     }
 
@@ -117,7 +116,6 @@ public class GetBookingRequest {
                 .queryParam("firstname",true)
                 .queryParam("someGarbage", "UnsLixosQueChegaramAqui")
                 .when()
-                .log().all()
                 .get("booking");
     }
 }
