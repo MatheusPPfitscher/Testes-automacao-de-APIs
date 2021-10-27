@@ -114,11 +114,11 @@ public class GetBookingTest extends BaseTest {
     @Test
     @Category({AllTests.class,AcceptanceTests.class})
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Validar o retorno de Reservas por filtro de data de entrada e saída simultaneos")
-    public void validateBookingFilterByCheckInAndCheckOut(){
+    @DisplayName("Validar o retorno de Reservas usando um filtro com duas datas de saída")
+    public void validateBookingFilterByDoubleCheckOut(){
         int idToTest = getBookingRequest.returnFirstIdFromBookingIds();
         HashMap<String, String> bookingDates = getBookingRequest.returnBookingDates(idToTest);
-        getBookingRequest.returnBookingFilterByBookingDates("both", bookingDates)
+        getBookingRequest.returnBookingFilterByBookingDates("double", bookingDates)
                 .then()
                 .statusCode(200)
                 .body(containsString(String.valueOf(idToTest)));

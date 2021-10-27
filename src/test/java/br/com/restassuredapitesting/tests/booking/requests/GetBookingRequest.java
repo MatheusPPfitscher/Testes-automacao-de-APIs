@@ -104,9 +104,10 @@ public class GetBookingRequest {
                 .when()
                 .get("booking");
         else return given()
-                    .queryParam("checkin",bookingDates.get("checkin").toString())
+                    .queryParam("checkout",bookingDates.get("checkout").toString())
                     .queryParam("checkout",bookingDates.get("checkout").toString())
                     .when()
+                    .log().all()
                     .get("booking");
     }
 
