@@ -20,11 +20,22 @@ public class PutBookingRequest {
                 .put("booking/"+id);
     }
 
+    @Step("Atualiza uma Reserva específica usando Basic Auth")
     public Response updateOneBookingWithBasicAuth(int id, JSONObject payload){
         return given()
                 .header("Content-Type","application/json")
                 .header("Accept", "application/json")
                 .auth().preemptive().basic("admin","password123")
+                .when()
+                .body(payload.toString())
+                .put("booking/"+id);
+    }
+
+    @Step("Atualiza uma Reserva específica sem enviar token ou Auth")
+    public Response updateOneBookingWithoutAuth(int id, JSONObject payload){
+        return given()
+                .header("Content-Type","application/json")
+                .header("Accept", "application/json")
                 .when()
                 .body(payload.toString())
                 .put("booking/"+id);
